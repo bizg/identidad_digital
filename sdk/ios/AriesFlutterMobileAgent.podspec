@@ -12,11 +12,11 @@ A new flutter plugin project.
   s.homepage         = 'http://example.com'
   s.license          = { :file => '../LICENSE' }
   s.author           = { 'Your Company' => 'email@example.com' }
-  s.source           = { :path => '.' }
+  s.source           = { :path => '.', :path => 'https://github.com/hyperledger/indy-sdk.git' }
   s.source_files = 'Classes/**/*'
   s.dependency 'Flutter'
-  s.dependency 'libindy'
-  s.dependency 'libindy-objc', '~> 1.8.2'
+  # s.dependency 'libindy'
+  # s.dependency 'libindy-objc', '~> 1.8.2'
 
   s.platform = :ios, '13.0'
 

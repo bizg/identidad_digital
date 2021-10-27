@@ -266,18 +266,23 @@ class ConnectionService {
         'didJson': jsonEncode(didJson),
         'createMasterSecret': false,
       });
-
+      debugPrint('llegamos por aca');
       var apibody = {
         'publicVerkey': user?.verkey,
         'verkey': createPairwiseDidResponse[1]
       };
+      debugPrint('llegamos por aca 2');
 
       final String url = user!.serviceEndpoint.replaceAll(RegExp('endpoint'), '');
+      debugPrint('llegamos por aca 3');
 
       await postData(
         url + "verkey",
         jsonEncode(apibody),
       );
+
+      debugPrint('llegamos por aca 4');
+
 
       PublicKey publicKey = new PublicKey(
         id: createPairwiseDidResponse[0] + "#1",
@@ -285,6 +290,9 @@ class ConnectionService {
         controller: createPairwiseDidResponse[0],
         publicKeyBase58: createPairwiseDidResponse[1],
       );
+
+      debugPrint('llegamos por aca 5');
+
 
       Service service = new Service(
         id: createPairwiseDidResponse[0] + ";indy",
@@ -295,10 +303,16 @@ class ConnectionService {
         routingKeys: [user.routingKey],
       );
 
+      debugPrint('llegamos por aca 6');
+
+
       Authentication auth = new Authentication(
         type: PublicKeyType.ED25519_SIG_2018.key,
         publicKey: publicKey.id,
       );
+
+      debugPrint('llegamos por aca 7');
+
 
       DidDoc didDoc = new DidDoc(
         context: 'https://w3id.org/did/v1',
@@ -307,6 +321,8 @@ class ConnectionService {
         authentication: [auth],
         service: [service],
       );
+
+      debugPrint('llegamos por aca 8');
 
       Connection connection = new Connection(
         did: createPairwiseDidResponse[0],
@@ -317,6 +333,9 @@ class ConnectionService {
         createdAt: new DateTime.now().toString(),
         updatedAt: new DateTime.now().toString(),
       );
+      
+      debugPrint('llegamos por aca 9');
+
 
       return connection;
     } catch (exception) {

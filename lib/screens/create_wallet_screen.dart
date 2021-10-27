@@ -3,9 +3,11 @@ import 'package:flutter/rendering.dart';
 import 'package:flutter/services.dart';
 // import 'package:progress_dialog/progress_dialog.dart';
 import '../config/check_permissions.dart';
-import 'connect_mediator_screen.dart';
+// import 'connect_mediator_screen.dart';
 import 'package:AriesFlutterMobileAgent/AriesAgent.dart';
 import 'package:flutter/foundation.dart';
+
+import 'connection_screen.dart';
 
 class CreateWalletScreen extends StatefulWidget {
   @override
@@ -40,7 +42,7 @@ class _CreateWalletScreenState extends State<CreateWalletScreen> {
           //_did = "CxCYYt9dq5gAknRvSkujk7";
           // progressIndicator.hide();
         });
-        Navigator.pushNamed(context, ConnectMediatorScreen.routeName);
+        Navigator.pushNamed(context, ConnectionScreen.routeName);
       } else {
         // progressIndicator.hide();
         setState(() {

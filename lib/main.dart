@@ -59,10 +59,11 @@ class _MyAppState extends State<MyApp> {
       theme: ThemeData(
         primarySwatch: Colors.green,
       ),
-      home: loggedIn ? ConnectionScreen() : CreateWalletScreen(),
+      // home: loggedIn ? const ConnectionScreen() : CreateWalletScreen(),
+      home: loggedIn ? CreateWalletScreen() : CreateWalletScreen(),
       routes: {
-        ConnectMediatorScreen.routeName: (ctx) => ConnectMediatorScreen(),
-        ConnectionScreen.routeName: (ctx) => ConnectionScreen(),
+        ConnectMediatorScreen.routeName: (ctx) => const ConnectMediatorScreen(),
+        ConnectionScreen.routeName: (ctx) => const ConnectionScreen(),
         ConnectionDetailScreen.routeName: (ctx) => ConnectionDetailScreen(),
         QRcodeScreen.routeName: (ctx) => QRcodeScreen(),
       },

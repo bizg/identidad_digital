@@ -2,6 +2,7 @@ import 'dart:ui';
 import 'package:AriesFlutterMobileAgent/AriesAgent.dart';
 import 'package:identidad_digital/helpers/constants.dart';
 import 'package:flutter/material.dart';
+import 'package:identidad_digital/utils/dialogs.dart' as dialog;
 // import 'package:progress_dialog/progress_dialog.dart';
 
 class CustomDialogBox extends StatefulWidget {
@@ -32,27 +33,27 @@ class _CustomDialogBoxState extends State<CustomDialogBox> {
 
   Future acceptCredential(message) async {
     try {
-      // progressIndicator.show();
+      dialog.show(context);
       await AriesFlutterMobileAgent.acceptCredentialOffer(
         message.messageId,
         message.messages,
       );
-      // progressIndicator.hide();
+      dialog.dismiss(context);
     } catch (err) {
-      // progressIndicator.hide();
+      dialog.dismiss(context);
     }
   }
 
   Future sendProof(message) async {
     try {
-      // progressIndicator.show();
+      dialog.show(context);
       await AriesFlutterMobileAgent.sendProof(
         message.messageId,
         message.messages,
       );
-      // progressIndicator.hide();
+      dialog.dismiss(context);
     } catch (exception) {
-      // progressIndicator.hide();
+      dialog.dismiss(context);
       throw exception;
     }
   }

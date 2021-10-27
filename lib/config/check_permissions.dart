@@ -9,4 +9,13 @@ class CheckPermissions {
       return true;
     }
   }
+
+  static Future<bool> requestCameraPermission() async {
+    var permission = await Permission.camera.request();
+    if (permission.isDenied) {
+      return false;
+    } else {
+      return true;
+    }
+  }
 }
