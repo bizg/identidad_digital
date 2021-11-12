@@ -4,7 +4,6 @@
 */
 import Flutter
 import UIKit
-import Indy
 
 public class SwiftAriesFlutterMobileAgentPlugin: NSObject, FlutterPlugin {
     
